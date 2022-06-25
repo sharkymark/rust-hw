@@ -34,7 +34,7 @@ fn main() {
 		print!("\n\nEnter fixed rate(no % symbol needed): ");
         std::io::stdout().flush().unwrap();
         std::io::stdin().read_line(&mut line).expect("Error: Could not read rate input");
-        rt_input = line.trim().to_string().parse::<f32>().unwrap();;
+        rt_input = line.trim().to_string().parse::<f32>().unwrap();
 	}    
 
 	println!("\n*INPUTS*");
