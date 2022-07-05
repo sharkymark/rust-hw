@@ -1,0 +1,1 @@
+Hello, world! I'm a file in a `static` folder on the Cargo root folder, served with `FileServer` from the `public` route.
