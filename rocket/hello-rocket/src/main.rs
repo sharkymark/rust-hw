@@ -20,7 +20,7 @@ fn hello(name: &str, age: u8, cool: bool) -> String {
 }
 
 // using multiple segments
-#[get("/<file..>")]
+#[get("/files/<file..>")]
 async fn files(file: PathBuf) -> Option<NamedFile> {
     NamedFile::open(Path::new("static/").join(file)).await.ok()
 }
@@ -39,18 +39,18 @@ fn foo_bar() -> &'static str {
 
 // using forwarding, a way to check types, before 404ing
 #[get("/user/<id>")]
-fn user(id: usize) -> String {
-    format!( "An unsigned integer called {}",id )
+fn user(id: usize) -> &'static str {
+    "Hey, usize."
 }
 
 #[get("/user/<id>", rank = 2)]
-fn user_int(id: isize) -> String {
-    format!( "An signed integer called {}",id )
+fn user_int(id: isize) -> &'static str {
+    "Hey, isize."
 }
 
 #[get("/user/<id>", rank = 3)]
-fn user_str(id: &str) -> String {
-    format!( "A string called {}",id )
+fn user_str(id: &str) -> &'static str {
+    "Hey, str."
 }
 
 #[launch]
